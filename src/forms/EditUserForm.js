@@ -5,9 +5,9 @@ function EditUserForm(props) {
     const [user, setUser] = useState(props.currentUser)
 
     useEffect(
-        () => {setUser(props.currentUser)},
+        () => { setUser(props.currentUser) },
         [props]
-        )
+    )
 
     const handleInputChange = event => {
         const { name, value } = event.target
@@ -24,41 +24,55 @@ function EditUserForm(props) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Имя</label>
-            <input
-                type="text"
-                name="name"
-                value={user.name}
-                onChange={handleInputChange}
-            />
-            <label>Фамилия</label>
-            <input
-                type="text"
-                name="surname"
-                value={user.surname}
-                onChange={handleInputChange}
-            />
-            <label>email</label>
-            <input
-                type="text"
-                name="email"
-                value={user.email}
-                onChange={handleInputChange}
-            />
-            <label>Телефон</label>
-            <input
-                type="text"
-                name="phone"
-                value={user.phone}
-                onChange={handleInputChange}
-            />
-            <button>Обновить</button>
+            <div className="mb-3">
+                <label className="form-label" >Имя</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="name"
+                    value={user.name}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Фамилия</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="surname"
+                    value={user.surname}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="email"
+                    value={user.email}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Телефон</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="phone"
+                    value={user.phone}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="d-flex justify-content-evenly">
+            <button  className="btn btn-success">Обновить</button>
             <button
                 onClick={() => props.setEditing(false)}
-                className="button muted-button"
+                className="btn btn-secondary"
             >
                 Отмена
             </button>
+            </div>
         </form>
     )
 }

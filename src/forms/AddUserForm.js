@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function AddUserForm({addUser}) {
+function AddUserForm({ addUser }) {
 
 
     const initialFormState = { id: null, name: '', surname: '', email: '', phone: '' }
@@ -20,36 +20,53 @@ function AddUserForm({addUser}) {
     }
 
     return (
+
         <form onSubmit={handleSubmit}>
-            <label>Имя</label>
-            <input
-                type="text"
-                name="name"
-                value={user.name}
-                onChange={handleInputChange}
-            />
-            <label>Фамилия</label>
-            <input
-                type="text"
-                name="surname"
-                value={user.surname}
-                onChange={handleInputChange}
-            />
-            <label>email</label>
-            <input
-                type="text"
-                name="email"
-                value={user.email}
-                onChange={handleInputChange}
-            />
-            <label>Телефон</label>
-            <input
-                type="text"
-                name="phone"
-                value={user.phone}
-                onChange={handleInputChange}
-            />
-            <button>Добавить новй контакт</button>
+            <div className="mb-3">
+                <label className="form-label" >Имя</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="name"
+                    value={user.name}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Фамилия</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="surname"
+                    value={user.surname}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="email"
+                    value={user.email}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Телефон</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    name="phone"
+                    value={user.phone}
+                    onChange={handleInputChange}
+                />
+            </div>
+
+            <button className="btn btn-success">
+                Добавить контакт
+            </button>
+
         </form>
     )
 }

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import AddUserForm from './forms/AddUserForm';
 import UserTable from './tables/UserTable';
 import EditUserForm from './forms/EditUserForm';
-import './App.css';
 
 function App() {
 
@@ -40,12 +39,12 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Handbook</h1>
-      <div className="flex-row">
-        <div className="flex-large">
+      <h1>Контакты</h1>
+      <div className="d-flex justify-content-between flex-wrap">
+        <div className="col-sm-12 col-lg-3">
           {editing ? (
             <div>
-              <h2>Редактировать</h2>
+              <h3>Редактировать</h3>
               <EditUserForm
                 editing={editing}
                 setEditing={setEditing}
@@ -55,13 +54,13 @@ function App() {
             </div>
           ) : (
             <div>
-              <h2>Добавить контакт</h2>
+              <h3>Добавить контакт</h3>
               <AddUserForm addUser={addUser} />
             </div>
           )}
         </div>
-        <div className="flex-large">
-          <h2>Просмотр контактов</h2>
+        <div className="col-sm-12 col-lg-9 px-3">
+          <h3>Просмотр контактов</h3>
           <UserTable
             users={users}
             editRow={editRow}

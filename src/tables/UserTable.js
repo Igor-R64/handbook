@@ -9,17 +9,18 @@ function UserTable({ users, deleteUser,editRow }) {
     }
 
     return (
-        <table>
+       
+        <table className="table  align-middle">
             <thead>
-                <tr>
+                <tr className="table-secondary">
                     <th>Имя</th>
                     <th>Фамилия</th>
-                    <th>email</th>
+                    <th>Email</th>
                     <th>Телефон</th>
                     <th>Действия</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="table-light">
                 {users.length > 0 ? (
                     users.map(user => (
                         <tr key={user.id}>
@@ -28,17 +29,20 @@ function UserTable({ users, deleteUser,editRow }) {
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
                             <td>
-                                <button className="button muted-button"
+                                <div className="d-flex justify-content-evenly">
+                                    <button className="btn btn-secondary"
                                 onClick={() => editRow(user)}
                                 >
                                     Редактировать
                                 </button>
                                 <button
-                                    className="button muted-button"
+                                    className="btn btn-danger"
                                     onClick={() => handleDeleteUser(user.id)}
                                 >
                                     Удалить
                                 </button>
+                                </div>
+                                
                             </td>
                         </tr>
                     ))
@@ -49,6 +53,7 @@ function UserTable({ users, deleteUser,editRow }) {
                 )}
             </tbody>
         </table>
+       
     )
 }
 
